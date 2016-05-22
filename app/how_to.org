@@ -1,0 +1,26 @@
+* Preliminary ML for Fannie data
+** Fannie的数据比较比较有意思的是他们每季度数据都是独立的。所以每个季度之间并没有 We merge the data together to make the summary file. During the merge, we found out that each quarter's data is not overlapping, meaning that each quarter, Fannie releases a new set of loan data and track the status of them.
+
+** Merging data
+   During merging, we encounter the memory issue when dealing with 2003 data as
+   it contains too many rows. Pandas was not able to process it. I think the
+   MapReduce is the way to go.
+*** TODO MapReduce 2003 Fannie data.
+** Preliminary Machine Learning
+*** Subsetting data and feature extraction
+    One of the important step for ML is feature extraction. It determines the
+    quality of following modeling. The basic idea is to grab as much information
+    out from the dataset. The strand of information is represented by
+    features. Meanwhile, all extracted features should be independent as well in
+    order to save the fitting time.
+
+    The method for us to pick the feature is mainly guided by the exploratory
+    study we did before. Credit score, overall loan amount, Loan-to-Value ratio
+    (LTV), Debt-to-Income (DTI) ratio, loan purpose, property type and occupancy
+    status. Of those variables, some (like DTI and LTV) are geographical
+    dependent. At this stage, we want to make a rough approximation by just use
+    state to do the first classifier. Those numerical values are calculated by
+    normalized by its mean and standard deviation by states. All categorical
+    variables are encoded. All features are combined by FeatureUnion via
+    scikit-learn.
+*** Step 1: Logistic Regression
