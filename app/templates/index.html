@@ -1,38 +1,57 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Prediction of Default of Home Morgage</h1>
-    <form action="/index" method="post" name="input_morgage_data">
-      <!-- {{ form.csrf_token }}  -->
-      <p>
-	{{form.loan_amount.label}}: {{form.loan_amount(size=10)}} <br>
-	{% for error in form.loan_amount.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}<br>
-	{{form.buyer_credit.label}}: {{form.buyer_credit()}} <br>
-	{% for error in form.loan_amount.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}<br>
-	{{form.cobuyer_credit.label}} (if available): {{form.cobuyer_credit()}} <br>
-	{% for error in form.loan_amount.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}<br>	
-	{{form.loan_to_value.label}}: {{form.loan_to_value()}} <br>
-	{% for error in form.loan_amount.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-	{% endfor %}<br>
-	{{form.debt_to_income.label}}: {{form.debt_to_income()}} <br>
-	{% for error in form.loan_amount.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-        {% endfor %}<br>	
-      </p>
-      <p>
-      {{form.loan_state.label}}: {{form.loan_state()}} <br>
-      {{form.loan_purpose.label}}: {{form.loan_purpose()}} <br>
-      {{form.property_type.label}}: {{form.property_type()}} <br>
-      {{form.occupancy_type.label}}: {{form.occupancy_type()}} <br>
-      </p>
-      <p><input type="submit" value="Get Loan Prediction"></p>
-    </form>
-<p> This morgage application is {{result}} </p>
 
+    <div class="container">
+      <div class="jumbotron">
+	<h2>Prediction of Default of Home Morgage</h2>
+	<form action="/index" method="post" name="input_morgage_data">
+	  <!-- {{ form.csrf_token }}  -->
+	  <p>
+	    {{form.loan_amount.label}}: {{form.loan_amount(size=10)}} <br>
+	    {% for error in form.loan_amount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}<br>
+	    {{form.buyer_credit.label}}: {{form.buyer_credit()}} <br>
+	    {% for error in form.loan_amount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}<br>
+	    {{form.cobuyer_credit.label}} (if available): {{form.cobuyer_credit()}} <br>
+	    {% for error in form.loan_amount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}<br>	
+	    {{form.loan_to_value.label}}: {{form.loan_to_value()}} <br>
+	    {% for error in form.loan_amount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+	    {% endfor %}<br>
+	    {{form.debt_to_income.label}}: {{form.debt_to_income()}} <br>
+	    {% for error in form.loan_amount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}<br>	
+	  </p>
+	  <p>
+	    {{form.loan_state.label}}: {{form.loan_state()}} <br>
+	    {{form.loan_purpose.label}}: {{form.loan_purpose()}} <br>
+	    {{form.property_type.label}}: {{form.property_type()}} <br>
+	    {{form.occupancy_type.label}}: {{form.occupancy_type()}} <br>
+	  </p>
+	  <p><input type="submit" value="Get Loan Prediction"></p>
+	</form>
+	<p> This morgage application is {{result}} </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron">
+	<h4 id="about">About</h4>
+	    <p>This model is build on Fannie Mae's data from 2000 to 2012,
+	      downloaded
+	      from <a href="http://www.fanniemae.com/portal/funding-the-market/data/loan-performance-data.html">Fannie
+		Mae Single Family Housing Data</a>. The data was processed by
+	      Python with the help of numpy/scipy, pandas and scikit-learn. You
+	      can find the source code
+	      in <a href="https://github.com/DigitalPig/SmartUnderwriter">This</a>
+	      Github repo.<br></p>
+	    <p>&copy; 2016 Zhenqing Li</p>
+      </div>
+    </div>
 {% endblock %}
