@@ -2,7 +2,6 @@ from flask import render_template, request, flash, redirect
 from app import app
 from .forms import MorgageInputForm
 import dill
-import numpy as np
 import pandas as pd
 import os.path
 
