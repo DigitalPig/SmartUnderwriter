@@ -43,17 +43,27 @@ def index():
         print(prediction)
         if prediction == 0:
             result = 'OK!'
+            status = 'alert alert-success'
         elif prediction == 1:
             result = 'Caution!'
+            status = 'alert alert-danger'
         else:
             result = 'Check Input'
+            status = 'alert alert-warning'
+            flash(form.errors)
     else:
         result = 'N/A'
+        status = 'alert alert-info'
         prediction = -1
-        print('Not valide submit')
-    flash(form.errors)
+
     return render_template("index.html",
                            title='Mortgage Risk Assessment',
                            form=form,
                            result=result,
-                           prediction=prediction)
+                           prediction=prediction,
+                           status=status)
+
+
+@app.route('/expo')
+def expo():
+    return render_template("expo.html")
