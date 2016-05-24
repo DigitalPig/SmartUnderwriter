@@ -2,45 +2,68 @@
 {% block content %}
 
     <div class="container">
-      <div class="jumbotron">
-	<h2>Prediction of Default of Home Morgage</h2>
+      <div class="jumbotron text-center">
+	<h2>Prediction of Default of Home Mortgage</h2>
       </div>
       <div class="row">
 	<div class="col-md-12">
-	<form action="/index" method="post" name="input_morgage_data">
+	<form action="/index" method="post" name="input_mortgage_data">
 	  <!-- {{ form.csrf_token }}  -->
-	  <p>
-	    {{form.loan_amount.label}}: {{form.loan_amount(size=10)}} <br>
-	    {% for error in form.loan_amount.errors %}
+	  <table class="table table-condensed borderless">
+	    <tr>
+	      <td>{{form.loan_amount.label}}:</td>
+	      <td>{{form.loan_amount(size=10)}}</td>
+	    <td>{% for error in form.loan_amount.errors %}
             <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}<br>
-	    {{form.buyer_credit.label}}: {{form.buyer_credit()}} <br>
-	    {% for error in form.loan_amount.errors %}
+            {% endfor %}</td>
+	    </tr>
+	    <tr>
+	      <td>{{form.buyer_credit.label}}:</td>
+	      <td>{{form.buyer_credit()}}</td>
+	      <td>{% for error in form.loan_amount.errors %}
             <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}<br>
-	    {{form.cobuyer_credit.label}} (if available): {{form.cobuyer_credit()}} <br>
-	    {% for error in form.loan_amount.errors %}
+            {% endfor %}</td>
+	    </tr>
+	    <tr>
+	    <td>{{form.cobuyer_credit.label}} (if available):</td>
+	    <td>{{form.cobuyer_credit()}}</td>
+	    <td>{% for error in form.loan_amount.errors %}
             <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}<br>	
-	    {{form.loan_to_value.label}}: {{form.loan_to_value()}} <br>
-	    {% for error in form.loan_amount.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-	    {% endfor %}<br>
-	    {{form.debt_to_income.label}}: {{form.debt_to_income()}} <br>
-	    {% for error in form.loan_amount.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}<br>	
-	  </p>
-	  <p>
-	    {{form.loan_state.label}}: {{form.loan_state()}} <br>
-	    {{form.loan_purpose.label}}: {{form.loan_purpose()}} <br>
-	    {{form.property_type.label}}: {{form.property_type()}} <br>
-	    {{form.occupancy_type.label}}: {{form.occupancy_type()}} <br>
-	  </p>
-	  <p><input type="submit" value="Get Loan Prediction"></p>
+            {% endfor %}</td>
+	    </tr>
+	    <tr>
+	      <td>{{form.loan_to_value.label}}:</td>
+	      <td>{{form.loan_to_value()}} </td>
+	      <td>{% for error in form.loan_amount.errors %}
+		<span style="color: red;">[{{ error }}]</span>
+		{% endfor %}</td>
+	    </tr>
+	    <tr>
+	      <td>{{form.debt_to_income.label}}:</td>
+	      <td>{{form.debt_to_income()}} </td>
+	      <td>{% for error in form.loan_amount.errors %}
+		<span style="color: red;">[{{ error }}]</span>
+		{% endfor %}</td>
+	    </tr>
+	  </table>
+	  <table class="table table-condensed borderless">
+	    <tr>
+	    <td>{{form.loan_state.label}}:</td>
+	    <td>{{form.loan_purpose.label}}:</td>
+	    <td>{{form.property_type.label}}:</td>
+	    <td>{{form.occupancy_type.label}}:</td>
+	    </tr>
+	    <tr>
+	    <td>{{form.loan_state()}} </td>
+	    <td>{{form.loan_purpose()}} </td>
+	    <td>{{form.property_type()}} </td>
+	    <td>{{form.occupancy_type()}} </td>
+	    </tr>
+	  </table>
+	  <p><input type="submit" class="btn btn-primary" value="Get Loan Prediction"></p>
 	</form>
 	<div class="{{status}}">
-	  <p> This morgage application is {{result}} </p>
+	  <p> This mortgage application is <strong>{{result}}</strong> </p>
 	</div>
 	
 	</div>

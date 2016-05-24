@@ -77,17 +77,17 @@ occupancies_type_choices = [('P', 'Primary Home'),
 
 
 class MorgageInputForm(Form):
-    loan_amount = FloatField('Originated Amount', validators=[DataRequired()])
-    buyer_credit = FloatField('Buyer\'s credit score', validators=[DataRequired(),
-                                                                   NumberRange(500.0, 850.0)])
+    loan_amount = FloatField('Originated Amount ($)', validators=[DataRequired()])
+    buyer_credit = FloatField('Buyer\'s credit score (Valid from 500 to 850)', validators=[DataRequired(),
+                                                                                           NumberRange(500.0, 850.0)])
     cobuyer_credit = FloatField('Cobuyer\'s credit score', validators=[optional(),
                                                                        NumberRange(500.0,
                                                                                    850.0,
                                                                                    "Check credit score")])
-    loan_to_value = FloatField('Originated Loan to Value ratio',
+    loan_to_value = FloatField('Originated Loan to Value ratio (%)',
                                validators=[DataRequired(), NumberRange(0, 100)])
-    debt_to_income = FloatField('Debt to Income Ratio', validators=[DataRequired(),
-                                                                    NumberRange(0, 100)])
+    debt_to_income = FloatField('Debt to Income Ratio (%)', validators=[DataRequired(),
+                                                                        NumberRange(0, 100)])
     loan_state = SelectField('State', choices=state_choices)
     loan_purpose = SelectField('Loan Purpose',
                                choices=loan_purpose_choices)
