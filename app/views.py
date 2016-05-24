@@ -63,3 +63,8 @@ def index():
                            result=result,
                            prediction=prediction,
                            status=status)
+
+
+@app.route('/expo')
+def expo():
+    return render_template("expo.html")

@@ -1,0 +1,14 @@
+The AUC of this SGD model is: 0.770430459114
+Classfication Report:
+             precision    recall  f1-score   support
+
+          0       0.98      0.71      0.83    810739
+          1       0.11      0.70      0.19     41217
+
+avg / total       0.94      0.71      0.79    851956
+
+/usr/local/lib/python3.4/dist-packages/numpy/core/fromnumeric.py:2652: VisibleDeprecationWarning: `rank` is deprecated; use the `ndim` attribute or function instead. To find the rank of a matrix see `numpy.linalg.matrix_rank`.
+  VisibleDeprecationWarning)
+                Pred. Healthy  Pred. Default
+Actual Healthy         578461         232278
+Actual Default          12332          28885
