@@ -16,9 +16,6 @@
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
     integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
 	  crossorigin="anonymous">
-    <style>
-    flash {background:#cee5F5; padding:0.5em;border:1px solid #aacbe2;}
-    </style>
   </head>
   <body>
     <div>Smart Underwriter by Zhenqing (ZQ) Li</div>
@@ -62,15 +59,17 @@
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 	    crossorigin="anonymous"></script>
     
-    {% with messages = get_flashed_messages() %}
+    <div class="alert alert-warning">
+      {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
         {% for message in messages %}
             <li>{{message}}</li>
         {% endfor %}
         </ul>
-    {% endif %}
-    {% endwith %}
+	{% endif %}
+	{% endwith %}
+    </div>
     {% block content %}{% endblock %}
   </body>
 </html>

@@ -4,6 +4,9 @@
     <div class="container">
       <div class="jumbotron">
 	<h2>Prediction of Default of Home Morgage</h2>
+      </div>
+      <div class="row">
+	<div class="col-md-12">
 	<form action="/index" method="post" name="input_morgage_data">
 	  <!-- {{ form.csrf_token }}  -->
 	  <p>
@@ -36,7 +39,11 @@
 	  </p>
 	  <p><input type="submit" value="Get Loan Prediction"></p>
 	</form>
-	<p> This morgage application is {{result}} </p>
+	<div class="{{status}}">
+	  <p> This morgage application is {{result}} </p>
+	</div>
+	
+	</div>
       </div>
     </div>
 
