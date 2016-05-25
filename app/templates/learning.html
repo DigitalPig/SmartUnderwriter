@@ -14,13 +14,13 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/index">Home</a></li>
-            <li><a href="/index#about">About</a></li>
-            <li class="active"><a href="#contact">Contact</a></li>
-	    <li class="dropdown">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+	    <li class="dropdown active">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Methods<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/expo">Exploratory Analysis</a></li>
-		<li><a href="/learning">Machine Learning</a>
+		<li><a href="learning">Machine Learning</a>
                 <!-- <li role="separator" class="divider"></li> -->
                 <!-- <li class="dropdown-header">Nav header</li> -->
                 <!-- <li><a href="#">Separated link</a></li> -->
@@ -30,16 +30,21 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </nav>
-
-    <div class="container">
+   </nav>
+<script language="javascript" type="text/javascript">
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
+       <div class="container">
       <div class="jumbotron text-center">
-	<h2>Contacts</h2>
+	<h2>Machine Learning on Fannie's Loan Performance Data</h2>
       </div>
       <div class="row">
 	<div class="col-md-12">
-	  <p>My name is Zhenqing(ZQ) Li and I am currently a polymer chemist at
-	    a specialty chemical company. </p>
-
-	  
+	  <iframe src="{{ url_for('static',filename='files/machine_learning.html')
+	  }}" frameborder="0" scrolling="no"
+	  onload="resizeIframe(this)" style="width: 100%;"></iframe>
+	</div>
+      </div>
 {% endblock %}

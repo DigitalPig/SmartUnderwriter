@@ -67,3 +67,8 @@ def index():
 @app.route('/expo')
 def expo():
     return render_template("expo.html")
+
+
+@app.route('/learning')
+def learning():
+    return render_template('learning.html')
