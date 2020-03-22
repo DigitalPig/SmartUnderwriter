@@ -1,6 +1,6 @@
 dill==0.2.5
 Flask==0.10.1
-gunicorn==19.3.0
+gunicorn==19.5.0
 Jinja2==2.8
 requests>=2.9.0
 numpy>=1.10.0
