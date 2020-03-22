@@ -1,12 +1,14 @@
 FROM heroku/miniconda
 
 # COPY necessary files inside
-ADD ./app /opt/app
-WORKDIR /opt/app
-COPY environment.yml /opt/app
-COPY run.py /opt/app
-COPY start.sh /opt/app
+ADD ./app /opt/web/app
+WORKDIR /opt/web/
+COPY environment.yml /opt/web
+COPY run.py /opt/web
+COPY config.py /opt/web
+COPY start.sh /opt/web
 
-RUN conda env create -f environment.yml
+RUN conda update -y conda && \
+    conda env create -f environment.yml
 
-CMD start.sh
+CMD bash ./start.sh

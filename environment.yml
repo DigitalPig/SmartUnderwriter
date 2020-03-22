@@ -45,6 +45,6 @@ dependencies:
   - wtforms=2.1
   - xz=5.2.4
   - zlib=1.2.11
-  - gunicorn
+  - gunicorn=19.9.0
 prefix: /home/digitalpig/.conda/envs/smart_underwriter
 
