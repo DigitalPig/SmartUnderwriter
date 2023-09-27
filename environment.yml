@@ -12,7 +12,7 @@ dependencies:
   - numpy=1.10.4
   - pandas=0.18.1
   - pip
-  - python
+  - python=3
   - python-dateutil
   - pytz
   - requests=2.9.2
