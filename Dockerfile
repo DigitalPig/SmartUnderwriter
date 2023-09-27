@@ -1,4 +1,4 @@
-FROM heroku/miniconda
+FROM continuumio/miniconda3:4.8.2
 
 # COPY necessary files inside
 ADD ./app /opt/web/app
